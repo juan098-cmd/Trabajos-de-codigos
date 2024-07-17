@@ -1,0 +1,317 @@
+using System;
+
+class Program
+{
+    static void Escenario_dia()
+    {
+        Console.WriteLine("1. Cielo");
+        Console.WriteLine("2. Paisaje");
+        Console.WriteLine("3. Iluminacion");
+        Console.WriteLine("4. Volver al menú principal");
+    }
+
+    static void Escenario_tarde()
+    {
+        Console.WriteLine("1. Cielo");
+        Console.WriteLine("2. Paisaje");
+        Console.WriteLine("3. Iluminacion");
+        Console.WriteLine("4. Volver al menú principal");
+    }
+
+    static void Escenario_noche()
+    {
+        Console.WriteLine("1. Cielo");
+        Console.WriteLine("2. Paisaje");
+        Console.WriteLine("3. Iluminacion");
+        Console.WriteLine("4. Volver al menú principal");
+    }
+
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.Write("Ingrese el escenario entre dia, tarde y noche o '4' para salir: ");
+            string escenario = Console.ReadLine();
+
+            if (escenario == "dia")
+            {
+                while (true)
+                {
+                    Escenario_dia();
+                    Console.WriteLine("Las opciones de cielo son:");
+                    Console.WriteLine("1.1 Cielo despejado.");
+                    Console.WriteLine("1.2 Cielo nublado.");
+                    Console.WriteLine("1.3 Cielo soleado.");
+                    Console.Write("Ingrese el número de la opción de cielo entre 1.1 ,1.2 y 1.3 o '4' para volver al menú principal: ");
+                    string opcion = Console.ReadLine();
+
+                    if (opcion == "1.1")
+                    {
+                        Console.WriteLine("Cielo despejado.");
+                    }
+                    else if (opcion == "1.2")
+                    {
+                        Console.WriteLine("Cielo nublado.");
+                    }
+                    else if (opcion == "1.3")
+                    {
+                        Console.WriteLine("Cielo soleado.");
+                    }
+                    else if (opcion == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de paisaje son:");
+                    Console.WriteLine("2.1 Ciudad.");
+                    Console.WriteLine("2.2 Rural.");
+                    Console.WriteLine("2.3 Callejón.");
+                    Console.Write("Ingrese el número de la opción del paisaje o '4' para volver al menú principal: ");
+                    string opcion2 = Console.ReadLine();
+
+                    if (opcion2 == "2.1")
+                    {
+                        Console.WriteLine("Ciudad.");
+                    }
+                    else if (opcion2 == "2.2")
+                    {
+                        Console.WriteLine("Rural.");
+                    }
+                    else if (opcion2 == "2.3")
+                    {
+                        Console.WriteLine("Callejón.");
+                    }
+                    else if (opcion2 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de iluminacion son:");
+                    Console.WriteLine("3.1 Poca luz.");
+                    Console.WriteLine("3.2 Mucha luz.");
+                    Console.WriteLine("3.3 Equilibrado.");
+                    Console.Write("Ingrese el número de la opción de la iluminacion o '4' para volver al menú principal: ");
+                    string opcion3 = Console.ReadLine();
+
+                    if (opcion3 == "3.1")
+                    {
+                        Console.WriteLine("Poca luz.");
+                    }
+                    else if (opcion3 == "3.2")
+                    {
+                        Console.WriteLine("Mucha luz.");
+                    }
+                    else if (opcion3 == "3.3")
+                    {
+                        Console.WriteLine("Equilibrado.");
+                    }
+                    else if (opcion3 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+                }
+            }
+            else if (escenario == "tarde")
+            {
+                while (true)
+                {
+                    Escenario_tarde();
+                    Console.WriteLine("Las opciones de cielo son:");
+                    Console.WriteLine("1.1 Atardecer.");
+                    Console.WriteLine("1.2 Oscureciendo.");
+                    Console.WriteLine("1.3 Parcialmente soleado.");
+                    Console.Write("Ingrese el número del cielo que desea o '4' para volver al menú principal: ");
+                    string opcion1 = Console.ReadLine();
+
+                    if (opcion1 == "1.1")
+                    {
+                        Console.WriteLine("Atardecer.");
+                    }
+                    else if (opcion1 == "1.2")
+                    {
+                        Console.WriteLine("Oscureciendo.");
+                    }
+                    else if (opcion1 == "1.3")
+                    {
+                        Console.WriteLine("Parcialmente soleado.");
+                    }
+                    else if (opcion1 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de paisaje son:");
+                    Console.WriteLine("2.1 Ciudad.");
+                    Console.WriteLine("2.2 Afuera de una granja.");
+                    Console.WriteLine("2.3 Patio de una casa abandonada.");
+                    Console.Write("Ingrese el número del paisaje que desea o '4' para volver al menú principal: ");
+                    string opcion2 = Console.ReadLine();
+
+                    if (opcion2 == "2.1")
+                    {
+                        Console.WriteLine("Ciudad.");
+                    }
+                    else if (opcion2 == "2.2")
+                    {
+                        Console.WriteLine("Afuera de una granja.");
+                    }
+                    else if (opcion2 == "2.3")
+                    {
+                        Console.WriteLine("Patio de una casa abandonada.");
+                    }
+                    else if (opcion2 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de iluminacion son:");
+                    Console.WriteLine("3.1 Poca luz.");
+                    Console.WriteLine("3.2 Suave.");
+                    Console.WriteLine("3.3 Iluminacion total.");
+                    Console.Write("Ingrese el número de la iluminacion que desea o '4' para volver al menú principal: ");
+                    string opcion3 = Console.ReadLine();
+
+                    if (opcion3 == "3.1")
+                    {
+                        Console.WriteLine("Poca luz.");
+                    }
+                    else if (opcion3 == "3.2")
+                    {
+                        Console.WriteLine("Suave.");
+                    }
+                    else if (opcion3 == "3.3")
+                    {
+                        Console.WriteLine("Iluminacion total.");
+                    }
+                    else if (opcion3 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+                }
+            }
+            else if (escenario == "noche")
+            {
+                while (true)
+                {
+                    Escenario_noche();
+                    Console.WriteLine("Las opciones de cielo son:");
+                    Console.WriteLine("1.1 Noche oscura.");
+                    Console.WriteLine("1.2 Noche estrellada.");
+                    Console.WriteLine("1.3 Noche con luna llena.");
+                    Console.Write("Ingrese el número del cielo que desea o '4' para volver al menú principal: ");
+                    string opcion1 = Console.ReadLine();
+
+                    if (opcion1 == "1.1")
+                    {
+                        Console.WriteLine("Noche oscura.");
+                    }
+                    else if (opcion1 == "1.2")
+                    {
+                        Console.WriteLine("Noche estrellada.");
+                    }
+                    else if (opcion1 == "1.3")
+                    {
+                        Console.WriteLine("Noche con luna llena.");
+                    }
+                    else if (opcion1 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de paisaje son:");
+                    Console.WriteLine("2.1 Manto de la noche.");
+                    Console.WriteLine("2.2 En la luna.");
+                    Console.WriteLine("2.3 Patio central del colegio.");
+                    Console.Write("Ingrese el número del paisaje que desea o '4' para volver al menú principal: ");
+                    string opcion2 = Console.ReadLine();
+
+                    if (opcion2 == "2.1")
+                    {
+                        Console.WriteLine("Manto de la noche.");
+                    }
+                    else if (opcion2 == "2.2")
+                    {
+                        Console.WriteLine("En la luna.");
+                    }
+                    else if (opcion2 == "2.3")
+                    {
+                        Console.WriteLine("Patio central del colegio.");
+                    }
+                    else if (opcion2 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+
+                    Console.WriteLine("Las opciones de iluminacion son:");
+                    Console.WriteLine("3.1 Luz de la luna.");
+                    Console.WriteLine("3.2 Baja luz.");
+                    Console.WriteLine("3.3 Iluminacion cuarto de luna.");
+                    Console.Write("Ingrese el número de la iluminacion que desea o '4' para volver al menú principal: ");
+                    string opcion3 = Console.ReadLine();
+
+                    if (opcion3 == "3.1")
+                    {
+                        Console.WriteLine("Luz de la luna.");
+                    }
+                    else if (opcion3 == "3.2")
+                    {
+                        Console.WriteLine("Baja luz.");
+                    }
+                    else if (opcion3 == "3.3")
+                    {
+                        Console.WriteLine("Iluminacion cuarto de luna.");
+                    }
+                    else if (opcion3 == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    }
+                }
+            }
+            else if (escenario == "4")
+            {
+                Console.WriteLine("Gracias por interactuar con el menú de personajes. ¡Regrese pronto!");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+            }
+        }
+    }
+}
