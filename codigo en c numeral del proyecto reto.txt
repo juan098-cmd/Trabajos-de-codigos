@@ -1,0 +1,194 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var personajes = new List<Dictionary<string, object>>
+        {
+            new Dictionary<string, object> { { "nombre", "ernesto santisteban" }, { "habilidades_especiales", new List<string> { "Fuerza", "Defensa" } } },
+            new Dictionary<string, object> { { "nombre", "sebastian cordero" }, { "habilidades_especiales", new List<string> { "Magia", "Sabiduría" } } },
+            new Dictionary<string, object> { { "nombre", "christine" }, { "habilidades_especiales", new List<string> { "Precisión", "Agilidad" } } },
+            new Dictionary<string, object> { { "nombre", "santiago" }, { "habilidades_especiales", new List<string> { "Fuerza", "Defensa" } } },
+            new Dictionary<string, object> { { "nombre", "prometeo deportado" }, { "habilidades_especiales", new List<string> { "Magia", "Sabiduría" } } },
+            new Dictionary<string, object> { { "nombre", "juana estrella" }, { "habilidades_especiales", new List<string> { "Precisión", "Agilidad" } } },
+            new Dictionary<string, object> { { "nombre", "fernando coellar" }, { "habilidades_especiales", new List<string> { "Fuerza", "Defensa" } } },
+            new Dictionary<string, object> { { "nombre", "picchu" }, { "habilidades_especiales", new List<string> { "Magia", "Sabiduría" } } }
+        };
+
+        var configuraciones = new Dictionary<string, object>
+        {
+            { "dificultad", "Medio" },
+            { "trampas_activadas", false },
+            { "equipo", new List<Dictionary<string, object>>() }
+        };
+
+        while (true)
+        {
+            Console.WriteLine("\nMenú Principal:");
+            Console.WriteLine("1. Seleccionar personajes");
+            Console.WriteLine("2. Modificar habilidades de personajes");
+            Console.WriteLine("3. Configurar dificultad");
+            Console.WriteLine("4. Activar/Desactivar trampas");
+            Console.WriteLine("5. Modificar ventajas y desventajas de personajes");
+            Console.WriteLine("6. Mostrar configuraciones");
+            Console.WriteLine("7. Salir");
+
+            string eleccion = Console.ReadLine();
+
+            switch (eleccion)
+            {
+                case "1":
+                    SeleccionarPersonajes(configuraciones, personajes);
+                    break;
+                case "2":
+                    ModificarHabilidades(configuraciones);
+                    break;
+                case "3":
+                    ConfigurarDificultad(configuraciones);
+                    break;
+                case "4":
+                    AlternarTrampas(configuraciones);
+                    break;
+                case "5":
+                    ModificarVentajasDesventajas(configuraciones);
+                    break;
+                case "6":
+                    MostrarConfiguraciones(configuraciones);
+                    break;
+                case "7":
+                    Console.WriteLine("Saliendo del juego...");
+                    return;
+                default:
+                    Console.WriteLine("Selección no válida. Por favor, intente de nuevo.");
+                    break;
+            }
+        }
+    }
+
+    static void ConfigurarDificultad(Dictionary<string, object> configuraciones)
+    {
+        string[] dificultades = { "Fácil", "Medio", "Difícil" };
+        Console.WriteLine("Seleccione la dificultad del juego (1: Fácil, 2: Medio, 3: Difícil): ");
+        string eleccion = Console.ReadLine();
+        if (int.TryParse(eleccion, out int index) && index >= 1 && index <= 3)
+        {
+            configuraciones["dificultad"] = dificultades[index - 1];
+        }
+        else
+        {
+            Console.WriteLine("Selección no válida.");
+        }
+    }
+
+    static void AlternarTrampas(Dictionary<string, object> configuraciones)
+    {
+        configuraciones["trampas_activadas"] = !(bool)configuraciones["trampas_activadas"];
+        Console.WriteLine($"Trampas {(bool)configuraciones["trampas_activadas"] ? "activadas" : "desactivadas"}.");
+    }
+
+    static void SeleccionarPersonajes(Dictionary<string, object> configuraciones, List<Dictionary<string, object>> personajesDisponibles)
+    {
+        Console.WriteLine("Seleccione personajes para su equipo:");
+        for (int i = 0; i < personajesDisponibles.Count; i++)
+        {
+            var personaje = personajesDisponibles[i];
+            Console.WriteLine($"{i + 1}. {personaje["nombre"]} - Habilidades: {string.Join(", ", (List<string>)personaje["habilidades_especiales"])}");
+        }
+        string[] elecciones = Console.ReadLine().Split(',');
+        var equipo = (List<Dictionary<string, object>>)configuraciones["equipo"];
+        equipo.Clear();
+        foreach (var eleccion in elecciones)
+        {
+            if (int.TryParse(eleccion, out int index) && index >= 1 && index <= personajesDisponibles.Count)
+            {
+                equipo.Add(personajesDisponibles[index - 1]);
+            }
+        }
+        Console.WriteLine("Personajes seleccionados: " + string.Join(", ", equipo.Select(p => p["nombre"])));
+    }
+
+    static void ModificarHabilidades(Dictionary<string, object> configuraciones)
+    {
+        var equipo = (List<Dictionary<string, object>>)configuraciones["equipo"];
+        if (!equipo.Any())
+        {
+            Console.WriteLine("Primero seleccione personajes para su equipo.");
+            return;
+        }
+        Console.WriteLine("Seleccione el personaje al que desea modificar sus habilidades:");
+        for (int i = 0; i < equipo.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {equipo[i]["nombre"]}");
+        }
+        string eleccion = Console.ReadLine();
+        if (int.TryParse(eleccion, out int index) && index >= 1 && index <= equipo.Count)
+        {
+            var personajeSeleccionado = equipo[index - 1];
+            Console.WriteLine($"Ingrese las nuevas habilidades para {personajeSeleccionado["nombre"]} separadas por comas: ");
+            string[] nuevasHabilidades = Console.ReadLine().Split(',');
+            personajeSeleccionado["habilidades_especiales"] = nuevasHabilidades.Select(h => h.Trim()).ToList();
+            Console.WriteLine($"Nuevas habilidades de {personajeSeleccionado["nombre"]}: {string.Join(", ", (List<string>)personajeSeleccionado["habilidades_especiales"])}");
+        }
+        else
+        {
+            Console.WriteLine("Selección no válida.");
+        }
+    }
+
+    static void ModificarVentajasDesventajas(Dictionary<string, object> configuraciones)
+    {
+        var equipo = (List<Dictionary<string, object>>)configuraciones["equipo"];
+        if (!equipo.Any())
+        {
+            Console.WriteLine("Primero seleccione personajes para su equipo.");
+            return;
+        }
+        Console.WriteLine("Seleccione el personaje al que desea modificar sus ventajas y desventajas:");
+        for (int i = 0; i < equipo.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {equipo[i]["nombre"]}");
+        }
+        string eleccion = Console.ReadLine();
+        if (int.TryParse(eleccion, out int index) && index >= 1 && index <= equipo.Count)
+        {
+            var personajeSeleccionado = equipo[index - 1];
+            Console.WriteLine($"Ingrese las ventajas para {personajeSeleccionado["nombre"]} separadas por comas: ");
+            string[] ventajas = Console.ReadLine().Split(',');
+            Console.WriteLine($"Ingrese las desventajas para {personajeSeleccionado["nombre"]} separadas por comas: ");
+            string[] desventajas = Console.ReadLine().Split(',');
+            personajeSeleccionado["ventajas"] = ventajas.Select(v => v.Trim()).ToList();
+            personajeSeleccionado["desventajas"] = desventajas.Select(d => d.Trim()).ToList();
+            Console.WriteLine($"Ventajas de {personajeSeleccionado["nombre"]}: {string.Join(", ", (List<string>)personajeSeleccionado["ventajas"])}");
+            Console.WriteLine($"Desventajas de {personajeSeleccionado["nombre"]}: {string.Join(", ", (List<string>)personajeSeleccionado["desventajas"])}");
+        }
+        else
+        {
+            Console.WriteLine("Selección no válida.");
+        }
+    }
+
+    static void MostrarConfiguraciones(Dictionary<string, object> configuraciones)
+    {
+        Console.WriteLine("\nConfiguraciones seleccionadas:");
+        Console.WriteLine($"Dificultad: {configuraciones["dificultad"]}");
+        Console.WriteLine($"Trampas activadas: {(bool)configuraciones["trampas_activadas"] ? "Sí" : "No"}");
+        Console.WriteLine("Equipo seleccionado:");
+        var equipo = (List<Dictionary<string, object>>)configuraciones["equipo"];
+        foreach (var personaje in equipo)
+        {
+            Console.WriteLine($" - {personaje["nombre"]} (Habilidades: {string.Join(", ", (List<string>)personaje["habilidades_especiales"])})");
+            if (personaje.ContainsKey("ventajas"))
+            {
+                Console.WriteLine($"   Ventajas: {string.Join(", ", (List<string>)personaje["ventajas"])}");
+            }
+            if (personaje.ContainsKey("desventajas"))
+            {
+                Console.WriteLine($"   Desventajas: {string.Join(", ", (List<string>)personaje["desventajas"])}");
+            }
+        }
+        Console.WriteLine();
+    }
+}
