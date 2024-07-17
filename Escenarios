@@ -1,0 +1,197 @@
+def Escenario_dia():
+    print("1. Cielo ")
+    print("2. paisaje")
+    print("3. iluminacion")
+    print("4. Volver al menú principal")
+
+
+def Escenario_tarde():
+    print("1. cielo")
+    print("2. paisaje")
+    print("3. iluminacion")
+    print("4. Volver al menú principal")
+
+
+def Escenario_noche():
+    print("1. cielo")
+    print("2. paisaje")
+    print("3. iluminacion")
+    print("4. Volver al menú principal")
+
+
+while True:
+    escenario = input("Ingrese el escenario entre dia, tarde y noche o '4' para salir: ")
+
+    if escenario == 'dia':
+        while True:
+            Escenario_dia()
+            print("las opciones de cielo son:")
+            print("1.1 cielo despejado.")
+            print("1.2 cielo nublado.")
+            print("1.3 cielo soleado.")
+            opcion = input("Ingrese el número de la opción de cielo entre 1.1 ,1.2 y 1.3 o '4' para volver al menú principal: ")
+
+            if opcion == '1.1':
+                print("Cielo despejado.")
+            elif opcion == '1.2':
+                print("cielo nublado.")
+            elif opcion == '1.3':
+                print("cielo soleado.")
+            elif opcion == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de paisaje son:")
+            print("2.1 ciudad.")
+            print("2.2 rural.")
+            print("2.3 callejon.")
+
+            opcion2 = input("Ingrese el número de la opción del paisaje o '4' para volver al menú principal: ")
+
+            if opcion2 == '2.1':
+                print("cuidad.")
+            elif opcion2 == '2.2':
+                print("rural.")
+            elif opcion2 == '2.3':
+                print("callejon.")
+            elif opcion2 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de iluminacion son:")
+            print("3.1 poca luz.")
+            print("3.2 mucha luz.")
+            print("3.3 equilibrado.")
+
+
+            opcion3 = input("Ingrese el número de la opción de la iluninacion o '4' para volver al menú principal:")
+            if opcion3 == '3.1':
+                print("poca luz.")
+            elif opcion3 == '3.2':
+                print("mucha luz.")
+            elif opcion3 == '3.3':
+                print("equilibrado.")
+            elif opcion3 == '4':
+                break
+            else:
+               print("Opción no válida. Por favor, seleccione una opción válida.")
+
+    elif escenario == 'tarde':
+        while True:
+            Escenario_tarde()
+            print("las opciones de cielo son:")
+            print("1.1 atardeser.")
+            print("1.2 oscureciendo.")
+            print("1.3 parcialmente soleado.")
+
+            opcion1 = input("Ingrese el número del cielo que desea o '4' para volver al menú principal: ")
+            if opcion1 == '1.1':
+                print("atardeser.")
+            elif opcion1 == '1.2':
+                print("oscureciendo.")
+            elif opcion1 == '1.3':
+                print("parcialmente soleado.")
+            elif opcion1 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de paisaje son:")
+            print("2.1 ciudad.")
+            print("2.2 afuera de una granja.")
+            print("2.3 patio de una casa bandonada.")
+
+            opcion2 = input("Ingrese el número del paisaje que desea o '4' para volver al menú principal: ")
+            if opcion2 == '2.1':
+                print("cuidad.")
+            elif opcion2 == '2.2':
+                print("afuera de una granja.")
+            elif opcion2 == '2.3':
+                print("patio de una casa abandonada.")
+            elif opcion2 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de iluminacion son:")
+            print("3.1 poca. ")
+            print("3.2 suave.")
+            print("3.3 iluminacion total.")
+
+            opcion3 = input("Ingrese el número de la iluminacion que desea o '4' para volver al menú principal: ")
+            if opcion3 == '3.1':
+                print("poca.")
+            elif opcion3 == '3.2':
+                print("suave.")
+            elif opcion3 == '3.3':
+                print("iluminacion total.")
+            elif opcion3 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+    elif escenario == 'noche':
+        while True:
+            Escenario_noche()
+            print("las opciones de cielo son:")
+            print("1.1 noche oscura.")
+            print("1.2 noche estrellada.")
+            print("1.3 noche con luna llena.")
+
+            opcion1 = input("Ingrese el número del cielo que desea o '4' para volver al menú principal: ")
+            if opcion1 == '2.1':
+                print("noche oscura.")
+            elif opcion1 == '2.2':
+                print("noche estrellada.")
+            elif opcion1 == '2.3':
+                print("noche con luna llena.")
+            elif opcion1 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de paisaje son:")
+            print("2.1 manto de la noche.")
+            print("2.2 en la luna.")
+            print("2.3 patio central del colegio.")
+
+
+            opcion2 = input("Ingrese el número del paisaje que desea o '4' para volver al menú principal: ")
+            if opcion2 == '2.1':
+                print("manto de la noche .")
+            elif opcion2 == '2.2':
+                print("en la luna .")
+            elif opcion2 == '2.3':
+                print("patio central del colegio.")
+            elif opcion2 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+            print("las opciones de iluminacion son:")
+            print("3.1 luz de la luna. ")
+            print("3.2 baja luz.")
+            print("3.3 iluminacion cuarto de luna.")
+
+
+            opcion3 = input("Ingrese el número de la iluminacion que desea o '4' para volver al menú principal: ")
+            if opcion3 == '3.1':
+                print("luz de la luna.")
+            elif opcion3 == '3.2':
+                print("baja luz.")
+            elif opcion3 == '3.3':
+                print("iluminacion cuarto de luna.")
+            elif opcion3 == '4':
+                break
+            else:
+                print("Opción no válida. Por favor, seleccione una opción válida.")
+
+
+
+    elif escenario == '4':
+        print("Gracias por interactuar con el menú de personajes. ¡Regrese pronto!")
+        break
+    else:
+        print("Opción no válida. Por favor, seleccione una opción válida.")
